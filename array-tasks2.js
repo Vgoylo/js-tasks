@@ -44,3 +44,39 @@
         return (Array.prototype.join.call(result))
       }
       console.log('Task 2  => ', atherArr())
+
+      /**
+      * Task 3
+      * - Соедините два массива чисел в один.
+      * - В полученном массиве попробуйте найти индекс числа `9`
+      */
+      const evenNumbers = [2, 4, 6, 8, 10]
+      const oddNumbers = [1, 3, 5, 7, 9]
+
+      function concatFindIndex(arr1, arr2) {
+        let arr = arr1.concat(arr2)
+        // let findIndex = arr.findIndex(item => item == 9)
+        // TODO: with indexOf():
+        return arr.indexOf(5);
+      }
+
+      console.log('Task 3  => ', concatFindIndex(evenNumbers, oddNumbers))
+
+      /**
+      * Task 4
+      *  Наш бинарный массив неполный, в нем явно не хватает единиц.
+      * Превратите данный массив в строку.
+      *`[0, 0, 0, 0]` -> `'0101010'`В полученном массиве попробуйте найти индекс числа `9`
+      */
+
+      const binary = [0, 0, 0, 0]
+
+      function createBinary(arr) {
+        let string = String(arr)
+        // let binary = string.split(',').join('1')
+        // TODO: return binary.join('1')
+
+        return binary.join('1');
+
+      }
+      console.log('Task 4 => ',createBinary(binary))
