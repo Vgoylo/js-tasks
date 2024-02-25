@@ -35,7 +35,7 @@
 
      return arr.mySort()
  }
- console.log('Task 1', sortNumsAndStrings(mixedArray)); // should be [4, 10, 20, 'str', 'aab', 'aaa']
+ console.log('Task 1', (sortNumsAndStrings(mixedArray)),'array on input', (mixedArray)); // should be [4, 10, 20, 'str', 'aab', 'aaa']
  console.log('array on input', mixedArray); // should stay the same ['str', 10, 4, 20, 'aaa', 'aab']
 
  /**
