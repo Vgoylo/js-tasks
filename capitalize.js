@@ -7,6 +7,7 @@
   console.log(this)
   let str = this.toLocaleLowerCase().split(' ')
   let result = [];
+
   for (let row of str) {
       // result.push(row.at(0).toUpperCase() + row.slice(1))
       result.push(row.replace(/^./, row.at(0).toUpperCase()))
