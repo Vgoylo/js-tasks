@@ -35,12 +35,27 @@ let Users = [
 ];
 
 function getUserName(num) {
-  return Promise.resolve(Users[num]);
+  // return Promise.resolve(Users[num]);
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(Users[num]);
+    }, 3000);
+  });
+  return promise;
 }
 
-getUserName(1)
+const user1 = getUserName(1)
   .then((user) => user.address)
   .then((address) => address.street)
   .then((street) => console.log(street));
 
-console.log("dddd");
+const user2 = getUserName(2)
+  .then((user) => user.address)
+  .then((address) => address.street)
+  .then((street) => console.log(street));
+
+const result = Promise.all([user1, user2]);
+
+// console.log(result);
+console.log(Users);
