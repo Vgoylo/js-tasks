@@ -37,9 +37,14 @@ let Users = [
 function getUserName(num) {
   // return Promise.resolve(Users[num]);
 
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve, rejected) => {
     setTimeout(() => {
-      resolve(Users[num]);
+      try {
+        resolve(Users[num]);
+      } catch (error) {
+        rejected(error)
+        console.warn(error)
+      }
     }, 3000);
   });
   return promise;
