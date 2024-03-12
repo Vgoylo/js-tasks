@@ -42,10 +42,9 @@ function getUserName(num) {
       try {
         resolve(Users[num]);
       } catch (error) {
-        rejected(error)
-        console.warn(error)
+        rejected(error);
       }
-    }, 3000);
+    }, 2000);
   });
   return promise;
 }
@@ -53,14 +52,16 @@ function getUserName(num) {
 const user1 = getUserName(1)
   .then((user) => user.address)
   .then((address) => address.street)
-  .then((street) => console.log(street));
+  .then((street) => street);
 
 const user2 = getUserName(2)
   .then((user) => user.address)
   .then((address) => address.street)
-  .then((street) => console.log(street));
+  .then((street) => street);
 
-const result = Promise.all([user1, user2]);
+Promise.all([user1, user2]).then(
+  (result) => console.log(result), // showed the result after two seconds
+  (error) => console.warn(error) // isn't starting
+);
 
-// console.log(result);
 console.log(Users);
