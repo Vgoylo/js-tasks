@@ -49,19 +49,41 @@ function getUserName(num) {
   return promise;
 }
 
-const user1 = getUserName(1)
-  .then((user) => user.address)
-  .then((address) => address.street)
-  .then((street) => street);
+async function user1() {
+  const result = await getUserName(1)
+    .then((user) => user.address)
+    .then((address) => address.street)
+    .then((street) => street);
 
-const user2 = getUserName(2)
-  .then((user) => user.address)
-  .then((address) => address.street)
-  .then((street) => street);
+  return result;
+}
 
-Promise.all([user1, user2]).then(
-  (result) => console.log(result), // showed the result after two seconds
-  (error) => console.warn(error) // isn't starting
-);
+// create function async with awayt instead .then
+async function user2() {
+  const result = await getUserName(0)
+    .then((user) => user.address)
+    .then((address) => address.street)
+    .then((street) => street);
 
-console.log(Users);
+  return result;
+}
+
+// const user2 = getUserName(2)
+//   .then((user) => user.address)
+//   .then((address) => address.street)
+//   .then((street) => street);
+
+// Promise.all([user1(), user2()]).then(
+//   (result) => console.log(result), // showed the result after two seconds
+//   (error) => console.warn(error) // isn't starting
+// );
+
+user1().then(console.log);
+user2().then(console.log);
+
+function syHi() {
+  let name = prompt("What are you name", "");
+  console.log(`hello my friend ${name}`);
+}
+
+syHi();
